@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Consumers } from './util';
+import { Consumers } from './contexts/index';
 
 export default class Child extends Component {
   render() {
@@ -7,6 +7,7 @@ export default class Child extends Component {
       <Consumers>
         {value => {
           const {players, changePlayerNumber} = value.players;
+          console.log(value, 'value')
           return (
             <div>
               <input value={players} onChange={e => changePlayerNumber(e.target.value)}/>

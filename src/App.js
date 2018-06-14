@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Child from './Child';
 
-import { Providers } from './util';
+import { Providers } from './contexts/index';
 
 class App extends Component {
   constructor(props) {

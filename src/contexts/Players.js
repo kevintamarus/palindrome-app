@@ -17,8 +17,7 @@ export class PlayersProvider extends Component {
       <PlayersContext.Provider
         value={{
           players: this.state.players,
-          changePlayerNumber: this.changePlayerNumber,
-          playerIncrease: this.playerIncrease
+          changePlayerNumber: this.changePlayerNumber
         }}
       >
         {this.props.children}
