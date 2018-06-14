@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { Consumers } from './contexts/index';
 
-export default class Child extends Component {
+class Child extends Component {
+  componentDidMount() {
+    console.log(this.props.store)
+  }
+
   render() {
     return (
       <Consumers>
@@ -19,3 +23,9 @@ export default class Child extends Component {
     )
   }
 }
+
+export default props => (
+  <Consumers>
+    {store => <Child {...props} store={store} />}
+  </Consumers>
+)
