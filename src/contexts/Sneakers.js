@@ -6,7 +6,12 @@ export class SneakersProvider extends Component {
   state = {brand: 'adidas'}
   render() {
     return (
-      <SneakersContext.Provider value={{brand: this.state.brand}}>
+      <SneakersContext.Provider value={{
+        state: {
+          brand: this.state.brand
+        },
+        actions: {}
+      }}>
         {this.props.children}
       </SneakersContext.Provider>
     )

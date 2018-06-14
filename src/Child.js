@@ -5,9 +5,9 @@ export default class Child extends Component {
   render() {
     return (
       <Consumers>
-        {value => {
-          const {players, changePlayerNumber} = value.players;
-          console.log(value, 'value')
+        {store => {
+          const { players } = store.players.state;
+          const { changePlayerNumber } = store.players.actions;
           return (
             <div>
               <input value={players} onChange={e => changePlayerNumber(e.target.value)}/>
