@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 const PlayersContext = React.createContext();
 
@@ -11,12 +11,14 @@ export class PlayersProvider extends Component {
     this.setState({players: number});
   }
 
+
   render() {
     return (
       <PlayersContext.Provider
         value={{
           players: this.state.players,
-          changePlayerNumber: this.changePlayerNumber
+          changePlayerNumber: this.changePlayerNumber,
+          playerIncrease: this.playerIncrease
         }}
       >
         {this.props.children}

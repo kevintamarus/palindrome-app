@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { PlayersConsumer } from './Players';
+import { Consumers } from './util';
 
 export default class Child extends Component {
   render() {
     return (
-      <PlayersConsumer>
+      <Consumers>
         {value => {
-          const {players, changePlayerNumber} = value;
+          const {players, changePlayerNumber} = value.players;
           return (
             <div>
               <input value={players} onChange={e => changePlayerNumber(e.target.value)}/>
@@ -14,7 +14,7 @@ export default class Child extends Component {
             </div>
           )
         }}
-      </PlayersConsumer>
+      </Consumers>
     )
   }
 }

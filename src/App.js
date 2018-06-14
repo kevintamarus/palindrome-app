@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Child from './Child';
 
-import { PlayersProvider, PlayersConsumer } from './Players';
+import { Providers } from './util';
 
 class App extends Component {
   constructor(props) {
@@ -33,24 +33,17 @@ class App extends Component {
 
   render() {
     return (
-      <PlayersProvider>
-        <PlayersConsumer>
-        {value => {
-          const {players} = value;
-          return (
-            <div className="App">
-              <form onSubmit={this.handleSubmit}>
-                <input value={this.state.input} onChange={e => this.handleInput(e)} placeholder={players}/>
-                <button type="submit">Submit</button>
-              </form>
-              {this.state.isPalindrome && <p>This is a palindrome</p>}
-              {this.state.isPalindrome === false && <p>This is NOT a palindrome</p>}
-            <Child/>
-            </div>
-          )
-        }}
-        </PlayersConsumer>
-      </PlayersProvider>
+      <Providers>
+        <div className="App">
+          <form onSubmit={this.handleSubmit}>
+            <input value={this.state.input} onChange={e => this.handleInput(e)} placeholder="type here"/>
+            <button type="submit">Submit</button>
+          </form>
+          {this.state.isPalindrome && <p>This is a palindrome</p>}
+          {this.state.isPalindrome === false && <p>This is NOT a palindrome</p>}
+        <Child/>
+        </div>
+      </Providers>
     );
   }
 }
